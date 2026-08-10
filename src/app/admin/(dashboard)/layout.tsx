@@ -17,6 +17,7 @@ export default function AdminLayout({
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           <Link href="/admin" style={{ padding: '0.75rem 1rem', borderRadius: '6px', display: 'block' }}>Dashboard</Link>
           <Link href="/admin/settings" style={{ padding: '0.75rem 1rem', borderRadius: '6px', display: 'block' }}>Pengaturan Website</Link>
+          <Link href="/admin/about" style={{ padding: '0.75rem 1rem', borderRadius: '6px', display: 'block' }}>About</Link>
           <Link href="/admin/services" style={{ padding: '0.75rem 1rem', borderRadius: '6px', display: 'block' }}>Layanan</Link>
           <Link href="/admin/portfolio" style={{ padding: '0.75rem 1rem', borderRadius: '6px', display: 'block' }}>Portofolio</Link>
           <Link href="/" style={{ padding: '0.75rem 1rem', borderRadius: '6px', display: 'block', marginTop: '2rem', color: '#a0aec0' }}>← Ke Website Utama</Link>

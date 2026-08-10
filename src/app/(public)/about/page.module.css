@@ -1,0 +1,409 @@
+.page {
+  background: var(--bg-color);
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary-dark),
+      var(--primary)
+    );
+
+  color: #fff;
+  padding: 6rem 0;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.heroLabel {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.hero h1 {
+  margin: 0 0 1.25rem;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 650px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+
+/* =========================
+   ABOUT
+   ========================= */
+
+.aboutSection {
+  padding: 6rem 0;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+
+/* Image */
+
+.imageWrapper {
+  position: relative;
+}
+
+.imageBox {
+  height: 480px;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: var(--shadow-md);
+}
+
+.imageBox::before {
+  content: '';
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  top: -100px;
+  right: -100px;
+}
+
+.imageBox::after {
+  content: '';
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  bottom: -100px;
+  left: -80px;
+}
+
+.imageText {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  z-index: 2;
+}
+
+
+/* Content */
+
+.aboutContent {
+  max-width: 600px;
+}
+
+.sectionLabel {
+  display: inline-block;
+
+  color: var(--primary);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 1rem;
+}
+
+.aboutContent h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+
+  color: var(--primary-dark);
+
+  margin: 0 0 1.5rem;
+}
+
+.aboutContent p {
+  color: var(--text-light);
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  margin-bottom: 1.25rem;
+}
+
+
+/* =========================
+   VISI MISI
+   ========================= */
+
+.visionSection {
+  background: var(--accent);
+  padding: 6rem 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+
+  font-size: 2.5rem;
+  line-height: 1.2;
+
+  color: var(--primary-dark);
+}
+
+
+.visionGrid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 2rem;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+
+.visionCard {
+  background: #fff;
+
+  padding: 2.5rem;
+
+  border-radius: 12px;
+
+  box-shadow: var(--shadow);
+
+  border: 1px solid var(--border-color);
+
+  text-align: center;
+}
+
+
+.icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 1.5rem;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+
+.visionCard h3 {
+  margin: 0 0 1rem;
+
+  font-size: 1.4rem;
+
+  color: var(--primary-dark);
+}
+
+
+.visionCard p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  line-height: 1.8;
+}
+
+
+/* =========================
+   VALUES
+   ========================= */
+
+.valuesSection {
+  padding: 6rem 0;
+}
+
+
+.valuesGrid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 2rem;
+}
+
+
+.valueCard {
+  padding: 2rem;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 12px;
+
+  background: #fff;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.valueCard:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.valueNumber {
+  color: var(--primary);
+
+  font-size: 0.9rem;
+
+  font-weight: 800;
+
+  margin-bottom: 1rem;
+}
+
+
+.valueCard h3 {
+  margin: 0 0 0.75rem;
+
+  color: var(--primary-dark);
+
+  font-size: 1.3rem;
+}
+
+
+.valueCard p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .aboutGrid {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+  .aboutContent {
+    max-width: 100%;
+  }
+
+  .imageBox {
+    height: 400px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 4rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .aboutSection,
+  .visionSection,
+  .valuesSection {
+    padding: 4rem 0;
+  }
+
+  .aboutGrid {
+    gap: 2.5rem;
+  }
+
+  .imageBox {
+    height: 300px;
+  }
+
+  .aboutContent h2,
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+
+  .visionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .visionCard,
+  .valueCard {
+    padding: 1.5rem;
+  }
+
+}
