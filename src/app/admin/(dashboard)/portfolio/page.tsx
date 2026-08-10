@@ -15,11 +15,65 @@ export default async function PortfolioPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
         <div style={{ background: '#fff', padding: '2rem', borderRadius: '12px', boxShadow: 'var(--shadow)', border: '1px solid var(--border-color)' }}>
           <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--primary)' }}>Tambah Portofolio Baru</h2>
-          <form action={addPortfolioAction} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <input type="text" name="title" placeholder="Nama Proyek" required style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)', outline: 'none' }} />
-            <input type="url" name="imageUrl" placeholder="URL Gambar (mis. dari unsplash.com)" required style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)', outline: 'none' }} />
-            <textarea name="description" placeholder="Deskripsi Singkat" required rows={3} style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)', outline: 'none', resize: 'vertical' }}></textarea>
-            <button type="submit" className="btn" style={{ alignSelf: 'flex-start' }}>Tambah Portofolio</button>
+          <form
+            action={addPortfolioAction}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem'
+            }}
+          >
+            <input
+              type="text"
+              name="title"
+              placeholder="Nama Proyek"
+              required
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                borderRadius: '6px',
+                border: '1px solid var(--border-color)',
+                outline: 'none'
+              }}
+            />
+
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              required
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                borderRadius: '6px',
+                border: '1px solid var(--border-color)',
+                outline: 'none',
+                backgroundColor: '#f9fafb'
+              }}
+            />
+
+            <textarea
+              name="description"
+              placeholder="Deskripsi Singkat"
+              required
+              rows={3}
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                borderRadius: '6px',
+                border: '1px solid var(--border-color)',
+                outline: 'none',
+                resize: 'vertical'
+              }}
+            />
+
+            <button
+              type="submit"
+              className="btn"
+              style={{ alignSelf: 'flex-start' }}
+            >
+              Tambah Portofolio
+            </button>
           </form>
         </div>
 
