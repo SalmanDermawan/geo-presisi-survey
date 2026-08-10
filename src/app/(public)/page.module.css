@@ -116,7 +116,7 @@
 
 /* CTA */
 .cta {
-  background-color: var(--primary);
+  background-color: var(--primary-dark);
   color: #fff;
   padding: 5rem 0;
 }
