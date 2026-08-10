@@ -1,0 +1,64 @@
+.navbar {
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImg {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link {
+  font-weight: 500;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--primary);
+}
+
+.btnNav {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btnNav:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-1px);
+}

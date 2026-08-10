@@ -1,0 +1,150 @@
+.hero {
+  background: linear-gradient(135deg, var(--bg-color) 0%, var(--accent) 100%);
+  padding: 6rem 0;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Grids */
+.grid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* Portfolio Card */
+.portfolioCard {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.portfolioCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.portImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portfolioCard:hover .portImage {
+  transform: scale(1.05);
+}
+
+.portContent {
+  padding: 1.5rem;
+}
+
+.portTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary-dark);
+}
+
+/* CTA */
+.cta {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 5rem 0;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.ctaDesc {
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+}
+
+.ctaBtn {
+  display: inline-block;
+  background-color: #fff;
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: all 0.2s ease;
+}
+
+.ctaBtn:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+}
