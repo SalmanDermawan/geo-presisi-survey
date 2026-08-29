@@ -17,7 +17,7 @@ export default async function AboutSettingsPage() {
     },
   });
 
-  const getValue = (key) => {
+  const getValue = (key: string): string => {
     return settings.find((s) => s.key === key)?.value || '';
   };
 
@@ -149,14 +149,15 @@ export default async function AboutSettingsPage() {
                   fontSize: '0.85rem',
                 }}
               >
-                Format JPG, PNG, atau WEBP. Gunakan gambar
-                dengan kualitas yang baik.
+                Format JPG, PNG, atau WEBP. Maksimal 5 MB.
               </small>
 
             </div>
 
 
-            {/* Preview */}
+            {/* =========================
+                PREVIEW GAMBAR
+            ========================= */}
 
             {aboutImage && (
               <div
@@ -203,7 +204,9 @@ export default async function AboutSettingsPage() {
             )}
 
 
-            {/* Judul */}
+            {/* =========================
+                JUDUL
+            ========================= */}
 
             <div style={field}>
 
@@ -221,7 +224,9 @@ export default async function AboutSettingsPage() {
             </div>
 
 
-            {/* Deskripsi */}
+            {/* =========================
+                DESKRIPSI
+            ========================= */}
 
             <div style={field}>
 
@@ -239,7 +244,9 @@ export default async function AboutSettingsPage() {
             </div>
 
 
-            {/* Deskripsi Tambahan */}
+            {/* =========================
+                DESKRIPSI TAMBAHAN
+            ========================= */}
 
             <div style={field}>
 
@@ -313,9 +320,9 @@ Membangun hubungan jangka panjang.`}
                   fontSize: '0.85rem',
                 }}
               >
-                Tulis satu misi dalam satu baris. Huruf
-                PRESISI akan otomatis digunakan sebagai penanda
-                setiap misi.
+                Tulis satu misi dalam satu baris.
+                Huruf PRESISI akan otomatis digunakan
+                sebagai penanda setiap misi.
               </small>
 
             </div>
@@ -330,7 +337,7 @@ Membangun hubungan jangka panjang.`}
           <div>
 
             <h2 style={sectionTitle}>
-              Nilai Perusahaan
+              Peralatan & Teknologi
             </h2>
 
 
@@ -348,7 +355,6 @@ Membangun hubungan jangka panjang.`}
                 defaultValue={getValue('aboutValue1Title')}
                 style={input}
               />
-
 
               <label style={label}>
                 Nilai 1 - Deskripsi
@@ -379,7 +385,6 @@ Membangun hubungan jangka panjang.`}
                 style={input}
               />
 
-
               <label style={label}>
                 Nilai 2 - Deskripsi
               </label>
@@ -408,7 +413,6 @@ Membangun hubungan jangka panjang.`}
                 defaultValue={getValue('aboutValue3Title')}
                 style={input}
               />
-
 
               <label style={label}>
                 Nilai 3 - Deskripsi
@@ -450,7 +454,11 @@ Membangun hubungan jangka panjang.`}
 }
 
 
-const sectionTitle = {
+/* =========================
+   STYLES
+========================= */
+
+const sectionTitle: React.CSSProperties = {
   fontSize: '1.25rem',
   fontWeight: 700,
   color: 'var(--primary-dark)',
@@ -459,20 +467,23 @@ const sectionTitle = {
   marginBottom: '1.5rem',
 };
 
-const field = {
+
+const field: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5rem',
   marginBottom: '1.25rem',
 };
 
-const label = {
+
+const label: React.CSSProperties = {
   display: 'block',
   fontWeight: 600,
   color: 'var(--primary-dark)',
 };
 
-const input = {
+
+const input: React.CSSProperties = {
   width: '100%',
   padding: '0.75rem',
   borderRadius: '6px',
