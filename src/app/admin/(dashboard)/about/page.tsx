@@ -17,12 +17,15 @@ export default async function AboutSettingsPage() {
     },
   });
 
-  const getValue = (key: string) => {
+  const getValue = (key) => {
     return settings.find((s) => s.key === key)?.value || '';
   };
 
+  const aboutImage = getValue('aboutImage');
+
   return (
     <div>
+
       <h1
         style={{
           fontSize: '2rem',
@@ -43,6 +46,7 @@ export default async function AboutSettingsPage() {
         Kelola isi halaman Tentang Kami dari halaman ini.
       </p>
 
+
       <div
         style={{
           background: '#fff',
@@ -53,8 +57,10 @@ export default async function AboutSettingsPage() {
           maxWidth: '900px',
         }}
       >
+
         <form
           action={updateAboutAction}
+          encType="multipart/form-data"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -67,11 +73,13 @@ export default async function AboutSettingsPage() {
           ========================= */}
 
           <div>
+
             <h2 style={sectionTitle}>
               Hero Section
             </h2>
 
             <div style={field}>
+
               <label style={label}>
                 Judul Hero
               </label>
@@ -82,9 +90,12 @@ export default async function AboutSettingsPage() {
                 defaultValue={getValue('aboutHeroTitle')}
                 style={input}
               />
+
             </div>
 
+
             <div style={field}>
+
               <label style={label}>
                 Deskripsi Hero
               </label>
@@ -95,7 +106,9 @@ export default async function AboutSettingsPage() {
                 rows={4}
                 style={input}
               />
+
             </div>
+
           </div>
 
 
@@ -104,11 +117,96 @@ export default async function AboutSettingsPage() {
           ========================= */}
 
           <div>
+
             <h2 style={sectionTitle}>
               Tentang Perusahaan
             </h2>
 
+
+            {/* =========================
+                GAMBAR
+            ========================= */}
+
             <div style={field}>
+
+              <label style={label}>
+                Gambar Tentang Perusahaan
+              </label>
+
+              <input
+                type="file"
+                name="aboutImage"
+                accept="image/jpeg,image/png,image/webp"
+                style={{
+                  ...input,
+                  padding: '0.6rem',
+                }}
+              />
+
+              <small
+                style={{
+                  color: 'var(--text-light)',
+                  fontSize: '0.85rem',
+                }}
+              >
+                Format JPG, PNG, atau WEBP. Gunakan gambar
+                dengan kualitas yang baik.
+              </small>
+
+            </div>
+
+
+            {/* Preview */}
+
+            {aboutImage && (
+              <div
+                style={{
+                  marginBottom: '1.5rem',
+                }}
+              >
+
+                <label
+                  style={{
+                    ...label,
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  Gambar Saat Ini
+                </label>
+
+                <div
+                  style={{
+                    width: '100%',
+                    maxWidth: '500px',
+                    height: '280px',
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                    border: '1px solid var(--border-color)',
+                    background: '#f9fafb',
+                  }}
+                >
+
+                  <img
+                    src={aboutImage}
+                    alt="Gambar Tentang Perusahaan"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
+                  />
+
+                </div>
+
+              </div>
+            )}
+
+
+            {/* Judul */}
+
+            <div style={field}>
+
               <label style={label}>
                 Judul
               </label>
@@ -119,9 +217,14 @@ export default async function AboutSettingsPage() {
                 defaultValue={getValue('aboutTitle')}
                 style={input}
               />
+
             </div>
 
+
+            {/* Deskripsi */}
+
             <div style={field}>
+
               <label style={label}>
                 Deskripsi
               </label>
@@ -132,9 +235,14 @@ export default async function AboutSettingsPage() {
                 rows={7}
                 style={input}
               />
+
             </div>
 
+
+            {/* Deskripsi Tambahan */}
+
             <div style={field}>
+
               <label style={label}>
                 Deskripsi Tambahan
               </label>
@@ -145,7 +253,9 @@ export default async function AboutSettingsPage() {
                 rows={5}
                 style={input}
               />
+
             </div>
+
           </div>
 
 
@@ -154,11 +264,14 @@ export default async function AboutSettingsPage() {
           ========================= */}
 
           <div>
+
             <h2 style={sectionTitle}>
               Visi & Misi
             </h2>
 
+
             <div style={field}>
+
               <label style={label}>
                 Visi
               </label>
@@ -169,9 +282,12 @@ export default async function AboutSettingsPage() {
                 rows={5}
                 style={input}
               />
+
             </div>
 
+
             <div style={field}>
+
               <label style={label}>
                 Misi
               </label>
@@ -179,10 +295,31 @@ export default async function AboutSettingsPage() {
               <textarea
                 name="aboutMission"
                 defaultValue={getValue('aboutMission')}
-                rows={5}
+                rows={7}
                 style={input}
+                placeholder={`Satu misi per baris.
+
+Contoh:
+Memberikan pelayanan terbaik kepada pelanggan.
+Mengutamakan kualitas dalam setiap pekerjaan.
+Mengembangkan inovasi dan teknologi.
+Menjaga profesionalitas dan integritas.
+Membangun hubungan jangka panjang.`}
               />
+
+              <small
+                style={{
+                  color: 'var(--text-light)',
+                  fontSize: '0.85rem',
+                }}
+              >
+                Tulis satu misi dalam satu baris. Huruf
+                PRESISI akan otomatis digunakan sebagai penanda
+                setiap misi.
+              </small>
+
             </div>
+
           </div>
 
 
@@ -191,13 +328,16 @@ export default async function AboutSettingsPage() {
           ========================= */}
 
           <div>
+
             <h2 style={sectionTitle}>
               Nilai Perusahaan
             </h2>
 
+
             {/* Nilai 1 */}
 
             <div style={field}>
+
               <label style={label}>
                 Nilai 1 - Judul
               </label>
@@ -209,6 +349,7 @@ export default async function AboutSettingsPage() {
                 style={input}
               />
 
+
               <label style={label}>
                 Nilai 1 - Deskripsi
               </label>
@@ -219,12 +360,14 @@ export default async function AboutSettingsPage() {
                 rows={3}
                 style={input}
               />
+
             </div>
 
 
             {/* Nilai 2 */}
 
             <div style={field}>
+
               <label style={label}>
                 Nilai 2 - Judul
               </label>
@@ -236,6 +379,7 @@ export default async function AboutSettingsPage() {
                 style={input}
               />
 
+
               <label style={label}>
                 Nilai 2 - Deskripsi
               </label>
@@ -246,12 +390,14 @@ export default async function AboutSettingsPage() {
                 rows={3}
                 style={input}
               />
+
             </div>
 
 
             {/* Nilai 3 */}
 
             <div style={field}>
+
               <label style={label}>
                 Nilai 3 - Judul
               </label>
@@ -263,6 +409,7 @@ export default async function AboutSettingsPage() {
                 style={input}
               />
 
+
               <label style={label}>
                 Nilai 3 - Deskripsi
               </label>
@@ -273,11 +420,15 @@ export default async function AboutSettingsPage() {
                 rows={3}
                 style={input}
               />
+
             </div>
+
           </div>
 
 
-          {/* SAVE */}
+          {/* =========================
+              SAVE
+          ========================= */}
 
           <button
             type="submit"
@@ -291,7 +442,9 @@ export default async function AboutSettingsPage() {
           </button>
 
         </form>
+
       </div>
+
     </div>
   );
 }
@@ -308,7 +461,7 @@ const sectionTitle = {
 
 const field = {
   display: 'flex',
-  flexDirection: 'column' as const,
+  flexDirection: 'column',
   gap: '0.5rem',
   marginBottom: '1.25rem',
 };

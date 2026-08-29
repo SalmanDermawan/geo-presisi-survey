@@ -8,6 +8,85 @@ export const metadata = {
 export default async function About() {
   const settings = await getSettings();
 
+  // =========================
+  // DATA DEFAULT
+  // =========================
+
+  const companyName = settings.companyName || 'Perusahaan';
+
+  const heroTitle =
+    settings.aboutHeroTitle || `Tentang ${companyName}`;
+
+  const heroSubtitle =
+    settings.aboutHeroSubtitle ||
+    'Mengenal lebih dekat perusahaan kami dan komitmen dalam memberikan solusi terbaik untuk kebutuhan Anda.';
+
+  const aboutTitle =
+    settings.aboutTitle ||
+    'Solusi Terbaik untuk Kebutuhan Anda';
+
+  const aboutText =
+    settings.aboutText ||
+    'Belum ada informasi tentang kami.';
+
+  const aboutVision =
+    settings.aboutVision ||
+    'Menjadi perusahaan terpercaya dan profesional yang memberikan solusi terbaik serta menciptakan hasil berkualitas bagi setiap pelanggan.';
+
+  // =========================
+  // GAMBAR PERUSAHAAN
+  // =========================
+
+  const aboutImage = settings.aboutImage || '';
+
+  // =========================
+  // DEFAULT MISI
+  // =========================
+
+  const defaultMissions = [
+    'Memberikan pelayanan berkualitas kepada setiap pelanggan.',
+    'Mengutamakan kepuasan pelanggan dalam setiap pelayanan dan proyek.',
+    'Mengembangkan inovasi untuk memberikan solusi terbaik.',
+    'Menjaga profesionalitas dan integritas dalam setiap pekerjaan.',
+    'Membangun hubungan jangka panjang yang baik dengan pelanggan.',
+  ];
+
+  // Ambil misi dari database jika tersedia
+  const missions = settings.aboutMission
+    ? settings.aboutMission
+        .split('\n')
+        .map((mission) => mission.trim())
+        .filter(Boolean)
+    : defaultMissions;
+
+  // =========================
+  // DATA NILAI PERUSAHAAN
+  // =========================
+
+  const values = [
+    {
+      number: '01',
+      title: settings.aboutValue1Title || 'Profesional',
+      text:
+        settings.aboutValue1Text ||
+        'Bekerja dengan standar profesional dan bertanggung jawab dalam setiap pekerjaan.',
+    },
+    {
+      number: '02',
+      title: settings.aboutValue2Title || 'Kualitas',
+      text:
+        settings.aboutValue2Text ||
+        'Mengutamakan kualitas hasil pekerjaan untuk memberikan kepuasan kepada pelanggan.',
+    },
+    {
+      number: '03',
+      title: settings.aboutValue3Title || 'Kepercayaan',
+      text:
+        settings.aboutValue3Text ||
+        'Membangun hubungan jangka panjang dengan pelanggan berdasarkan kepercayaan.',
+    },
+  ];
+
   return (
     <main>
 
@@ -23,15 +102,9 @@ export default async function About() {
               TENTANG KAMI
             </span>
 
-            <h1>
-              {settings.aboutHeroTitle ||
-                `Tentang ${settings.companyName || 'Perusahaan'}`}
-            </h1>
+            <h1>{heroTitle}</h1>
 
-            <p>
-              {settings.aboutHeroSubtitle ||
-                'Mengenal lebih dekat perusahaan kami dan komitmen dalam memberikan solusi terbaik untuk kebutuhan Anda.'}
-            </p>
+            <p>{heroSubtitle}</p>
 
           </div>
         </div>
@@ -47,22 +120,41 @@ export default async function About() {
 
           <div className={styles.aboutGrid}>
 
-            {/* Image / Placeholder */}
+            {/* =========================
+                IMAGE
+            ========================= */}
 
             <div className={styles.imageWrapper}>
-              <div className={styles.imageBox}>
 
-                <div className={styles.imageOverlay}></div>
+              {aboutImage ? (
+                <div className={styles.imageBox}>
+                  <img
+                    src={aboutImage}
+                    alt={`Tentang ${companyName}`}
+                    className={styles.aboutImage}
+                  />
+                </div>
+              ) : (
+                <div className={styles.imageBox}>
 
-                <span className={styles.imageText}>
-                  {settings.companyName || 'Company'}
-                </span>
+                  <div
+                    className={styles.imageOverlay}
+                    aria-hidden="true"
+                  />
 
-              </div>
+                  <span className={styles.imageText}>
+                    {companyName}
+                  </span>
+
+                </div>
+              )}
+
             </div>
 
 
-            {/* Content */}
+            {/* =========================
+                CONTENT
+            ========================= */}
 
             <div className={styles.aboutContent}>
 
@@ -70,20 +162,12 @@ export default async function About() {
                 TENTANG PERUSAHAAN
               </span>
 
-              <h2>
-                {settings.aboutTitle ||
-                  'Solusi Terbaik untuk Kebutuhan Anda'}
-              </h2>
+              <h2>{aboutTitle}</h2>
 
-              <p>
-                {settings.aboutText ||
-                  'Belum ada informasi tentang kami.'}
-              </p>
+              <p>{aboutText}</p>
 
-              {settings.aboutText2 && (
-                <p>
-                  {settings.aboutText2}
-                </p>
+              {settings.aboutText2?.trim() && (
+                <p>{settings.aboutText2}</p>
               )}
 
             </div>
@@ -116,42 +200,59 @@ export default async function About() {
 
           <div className={styles.visionGrid}>
 
-            {/* Visi */}
+            {/* =====================
+                VISI
+            ===================== */}
 
             <div className={styles.visionCard}>
 
-              <div className={styles.icon}>
+              <div
+                className={styles.icon}
+                aria-hidden="true"
+              >
                 V
               </div>
 
-              <h3>
-                Visi
-              </h3>
+              <h3>Visi</h3>
 
-              <p>
-                {settings.aboutVision ||
-                  'Menjadi perusahaan terpercaya dan profesional yang memberikan solusi terbaik serta menciptakan hasil berkualitas bagi setiap pelanggan.'}
-              </p>
+              <p>{aboutVision}</p>
 
             </div>
 
 
-            {/* Misi */}
+            {/* =====================
+                MISI
+            ===================== */}
 
             <div className={styles.visionCard}>
 
-              <div className={styles.icon}>
+              <div
+                className={styles.icon}
+                aria-hidden="true"
+              >
                 M
               </div>
 
-              <h3>
-                Misi
-              </h3>
+              <h3>Misi</h3>
 
-              <p>
-                {settings.aboutMission ||
-                  'Memberikan pelayanan berkualitas, mengutamakan kepuasan pelanggan, serta terus meningkatkan inovasi dan profesionalitas dalam setiap proyek.'}
-              </p>
+              <div className={styles.missionList}>
+
+                {missions.map((mission, index) => (
+                  <div
+                    className={styles.missionItem}
+                    key={`${index}-${mission}`}
+                  >
+
+                    <span className={styles.missionNumber}>
+                      {'PRESISI'[index] || String(index + 1)}
+                    </span>
+
+                    <p>{mission}</p>
+
+                  </div>
+                ))}
+
+              </div>
 
             </div>
 
@@ -162,7 +263,7 @@ export default async function About() {
 
 
       {/* =========================
-          NILAI PERUSAHAAN
+          PERALATAN & TEKNOLOGI
       ========================= */}
 
       <section className={styles.valuesSection}>
@@ -171,11 +272,11 @@ export default async function About() {
           <div className={styles.sectionHeader}>
 
             <span className={styles.sectionLabel}>
-              NILAI KAMI
+              PERALATAN & TEKNOLOGI
             </span>
 
             <h2>
-              Prinsip yang Kami Pegang
+              Peralatan & Teknologi yang Kami Gunakan
             </h2>
 
           </div>
@@ -183,67 +284,22 @@ export default async function About() {
 
           <div className={styles.valuesGrid}>
 
-            {/* Value 1 */}
+            {values.map((value) => (
+              <div
+                className={styles.valueCard}
+                key={value.number}
+              >
 
-            <div className={styles.valueCard}>
+                <div className={styles.valueNumber}>
+                  {value.number}
+                </div>
 
-              <div className={styles.valueNumber}>
-                01
+                <h3>{value.title}</h3>
+
+                <p>{value.text}</p>
+
               </div>
-
-              <h3>
-                {settings.aboutValue1Title ||
-                  'Profesional'}
-              </h3>
-
-              <p>
-                {settings.aboutValue1Text ||
-                  'Bekerja dengan standar profesional dan bertanggung jawab dalam setiap pekerjaan.'}
-              </p>
-
-            </div>
-
-
-            {/* Value 2 */}
-
-            <div className={styles.valueCard}>
-
-              <div className={styles.valueNumber}>
-                02
-              </div>
-
-              <h3>
-                {settings.aboutValue2Title ||
-                  'Kualitas'}
-              </h3>
-
-              <p>
-                {settings.aboutValue2Text ||
-                  'Mengutamakan kualitas hasil pekerjaan untuk memberikan kepuasan kepada pelanggan.'}
-              </p>
-
-            </div>
-
-
-            {/* Value 3 */}
-
-            <div className={styles.valueCard}>
-
-              <div className={styles.valueNumber}>
-                03
-              </div>
-
-              <h3>
-                {settings.aboutValue3Title ||
-                  'Kepercayaan'}
-              </h3>
-
-              <p>
-                {settings.aboutValue3Text ||
-                  'Membangun hubungan jangka panjang dengan pelanggan berdasarkan kepercayaan.'}
-              </p>
-
-            </div>
+            ))}
 
           </div>
 
