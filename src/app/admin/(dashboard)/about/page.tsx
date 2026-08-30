@@ -25,9 +25,15 @@ export default async function AboutSettingsPage() {
   const aboutValue1Image = getValue('aboutValue1Image');
   const aboutValue2Image = getValue('aboutValue2Image');
   const aboutValue3Image = getValue('aboutValue3Image');
+  const aboutValue4Image = getValue('aboutValue4Image');
+  const aboutValue5Image = getValue('aboutValue5Image');
+  const aboutValue6Image = getValue('aboutValue6Image');
   const aboutLegalityImage = getValue('aboutLegalityImage');
   const aboutLegality2Image = getValue('aboutLegality2Image');
   const aboutLegality3Image = getValue('aboutLegality3Image');
+  const aboutLegality4Image = getValue('aboutLegality4Image');
+  const aboutLegality5Image = getValue('aboutLegality5Image');
+  const aboutLegality6Image = getValue('aboutLegality6Image');
   const aboutOrgStructureImage = getValue('aboutOrgStructureImage');
 
   return (
@@ -337,7 +343,7 @@ Membangun hubungan jangka panjang.`}
 
 
           {/* =========================
-              NILAI PERUSAHAAN
+              Peralatan
           ========================= */}
 
           <div>
@@ -347,44 +353,84 @@ Membangun hubungan jangka panjang.`}
             </h2>
 
 
-            {/* Nilai 1 */}
+            {/* Peralatan 1 */}
             <div style={field}>
-              <label style={label}>Nilai 1 - Judul</label>
+              <label style={label}>Peralatan 1 - Judul</label>
               <input type="text" name="aboutValue1Title" defaultValue={getValue('aboutValue1Title')} style={input} />
               
-              <label style={label}>Nilai 1 - Deskripsi</label>
+              <label style={label}>Peralatan 1 - Deskripsi</label>
               <textarea name="aboutValue1Text" defaultValue={getValue('aboutValue1Text')} rows={3} style={input} />
 
-              <label style={label}>Nilai 1 - Gambar (Opsional)</label>
+              <label style={label}>Peralatan 1 - Gambar (Opsional)</label>
               <input type="file" name="aboutValue1Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
               {aboutValue1Image && <img src={aboutValue1Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
             </div>
 
-            {/* Nilai 2 */}
+            {/* Peralatan 2 */}
             <div style={field}>
-              <label style={label}>Nilai 2 - Judul</label>
+              <label style={label}>Peralatan 2 - Judul</label>
               <input type="text" name="aboutValue2Title" defaultValue={getValue('aboutValue2Title')} style={input} />
               
-              <label style={label}>Nilai 2 - Deskripsi</label>
+              <label style={label}>Peralatan 2 - Deskripsi</label>
               <textarea name="aboutValue2Text" defaultValue={getValue('aboutValue2Text')} rows={3} style={input} />
 
-              <label style={label}>Nilai 2 - Gambar (Opsional)</label>
+              <label style={label}>Peralatan 2 - Gambar (Opsional)</label>
               <input type="file" name="aboutValue2Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
               {aboutValue2Image && <img src={aboutValue2Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
             </div>
 
-            {/* Nilai 3 */}
+            {/* Peralatan 3 */}
             <div style={field}>
-              <label style={label}>Nilai 3 - Judul</label>
+              <label style={label}>Peralatan 3 - Judul</label>
               <input type="text" name="aboutValue3Title" defaultValue={getValue('aboutValue3Title')} style={input} />
               
-              <label style={label}>Nilai 3 - Deskripsi</label>
+              <label style={label}>Peralatan 3 - Deskripsi</label>
               <textarea name="aboutValue3Text" defaultValue={getValue('aboutValue3Text')} rows={3} style={input} />
 
-              <label style={label}>Nilai 3 - Gambar (Opsional)</label>
+              <label style={label}>Peralatan 3 - Gambar (Opsional)</label>
               <input type="file" name="aboutValue3Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
               {aboutValue3Image && <img src={aboutValue3Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
             </div>
+
+            {/* Peralatan 4 */}
+            <div style={field}>
+              <label style={label}>Peralatan 4 - Judul</label>
+              <input type="text" name="aboutValue4Title" defaultValue={getValue('aboutValue4Title')} style={input} />
+              
+              <label style={label}>Peralatan 4 - Deskripsi</label>
+              <textarea name="aboutValue4Text" defaultValue={getValue('aboutValue4Text')} rows={3} style={input} />
+
+              <label style={label}>Peralatan 4 - Gambar (Opsional)</label>
+              <input type="file" name="aboutValue4Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
+              {aboutValue4Image && <img src={aboutValue4Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
+            </div>
+
+            {/* Peralatan 5 */}
+            <div style={field}>
+              <label style={label}>Peralatan 5 - Judul</label>
+              <input type="text" name="aboutValue5Title" defaultValue={getValue('aboutValue5Title')} style={input} />
+              
+              <label style={label}>Peralatan 5 - Deskripsi</label>
+              <textarea name="aboutValue5Text" defaultValue={getValue('aboutValue5Text')} rows={3} style={input} />
+
+              <label style={label}>Peralatan 5 - Gambar (Opsional)</label>
+              <input type="file" name="aboutValue5Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
+              {aboutValue5Image && <img src={aboutValue5Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
+            </div>
+
+            {/* Peralatan 6 */}
+            <div style={field}>
+              <label style={label}>Peralatan 6 - Judul</label>
+              <input type="text" name="aboutValue6Title" defaultValue={getValue('aboutValue6Title')} style={input} />
+              
+              <label style={label}>Peralatan 6 - Deskripsi</label>
+              <textarea name="aboutValue6Text" defaultValue={getValue('aboutValue6Text')} rows={3} style={input} />
+
+              <label style={label}>Peralatan 6 - Gambar (Opsional)</label>
+              <input type="file" name="aboutValue6Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
+              {aboutValue6Image && <img src={aboutValue6Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
+            </div>
+
 
           </div>
 

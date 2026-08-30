@@ -88,6 +88,30 @@ export default async function About() {
         'Membangun hubungan jangka panjang dengan pelanggan berdasarkan kepercayaan.',
       image: settings.aboutValue3Image || null,
     },
+    {
+    number: '04',
+    title: settings.aboutValue4Title || 'Teknologi',
+    text:
+      settings.aboutValue4Text ||
+      'Memanfaatkan teknologi survey dan pemetaan untuk menghasilkan data yang akurat dan presisi.',
+    image: settings.aboutValue4Image || null,
+    },
+    {
+    number: '05',
+    title: settings.aboutValue5Title || 'Inovasi',
+    text:
+      settings.aboutValue5Text ||
+      'Mengembangkan inovasi untuk memberikan solusi terbaik.',
+    image: settings.aboutValue5Image || null,
+    },
+    {
+    number: '06',
+    title: settings.aboutValue6Title || 'Kepuasan Pelanggan',
+    text:
+      settings.aboutValue6Text ||
+      'Mengutamakan kepuasan pelanggan dalam setiap pelayanan dan proyek.',
+    image: settings.aboutValue6Image || null,
+    },
   ];
 
   const legalityImage = settings.aboutLegalityImage || null;

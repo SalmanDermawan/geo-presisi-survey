@@ -18,6 +18,12 @@ const aboutKeys = [
   'aboutValue2Text',
   'aboutValue3Title',
   'aboutValue3Text',
+  'aboutValue4Title',
+  'aboutValue4Text',
+  'aboutValue5Title',
+  'aboutValue5Text',
+  'aboutValue6Title',
+  'aboutValue6Text',
   'aboutLegalityText',
 ];
 
@@ -62,9 +68,15 @@ export async function updateAboutAction(formData: FormData) {
     'aboutValue1Image',
     'aboutValue2Image',
     'aboutValue3Image',
+    'aboutValue4Image',
+    'aboutValue5Image',
+    'aboutValue6Image',
     'aboutLegalityImage',
     'aboutLegality2Image',
     'aboutLegality3Image',
+    'aboutLegality4Image',
+    'aboutLegality5Image',
+    'aboutLegality6Image',
     'aboutOrgStructureImage',
   ];
 
