@@ -9,7 +9,7 @@ interface FooterProps {
 }
 
 export default function Footer({ 
-  companyName = 'Company',
+  companyName = 'CV Geo Presisi Survey',
   contactEmail,
   contactPhone,
   contactAddress

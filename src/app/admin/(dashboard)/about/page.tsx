@@ -22,6 +22,13 @@ export default async function AboutSettingsPage() {
   };
 
   const aboutImage = getValue('aboutImage');
+  const aboutValue1Image = getValue('aboutValue1Image');
+  const aboutValue2Image = getValue('aboutValue2Image');
+  const aboutValue3Image = getValue('aboutValue3Image');
+  const aboutLegalityImage = getValue('aboutLegalityImage');
+  const aboutLegality2Image = getValue('aboutLegality2Image');
+  const aboutLegality3Image = getValue('aboutLegality3Image');
+  const aboutOrgStructureImage = getValue('aboutOrgStructureImage');
 
   return (
     <div>
@@ -60,7 +67,6 @@ export default async function AboutSettingsPage() {
 
         <form
           action={updateAboutAction}
-          encType="multipart/form-data"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -342,91 +348,125 @@ Membangun hubungan jangka panjang.`}
 
 
             {/* Nilai 1 */}
-
             <div style={field}>
+              <label style={label}>Nilai 1 - Judul</label>
+              <input type="text" name="aboutValue1Title" defaultValue={getValue('aboutValue1Title')} style={input} />
+              
+              <label style={label}>Nilai 1 - Deskripsi</label>
+              <textarea name="aboutValue1Text" defaultValue={getValue('aboutValue1Text')} rows={3} style={input} />
 
-              <label style={label}>
-                Nilai 1 - Judul
-              </label>
-
-              <input
-                type="text"
-                name="aboutValue1Title"
-                defaultValue={getValue('aboutValue1Title')}
-                style={input}
-              />
-
-              <label style={label}>
-                Nilai 1 - Deskripsi
-              </label>
-
-              <textarea
-                name="aboutValue1Text"
-                defaultValue={getValue('aboutValue1Text')}
-                rows={3}
-                style={input}
-              />
-
+              <label style={label}>Nilai 1 - Gambar (Opsional)</label>
+              <input type="file" name="aboutValue1Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
+              {aboutValue1Image && <img src={aboutValue1Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
             </div>
-
 
             {/* Nilai 2 */}
-
             <div style={field}>
+              <label style={label}>Nilai 2 - Judul</label>
+              <input type="text" name="aboutValue2Title" defaultValue={getValue('aboutValue2Title')} style={input} />
+              
+              <label style={label}>Nilai 2 - Deskripsi</label>
+              <textarea name="aboutValue2Text" defaultValue={getValue('aboutValue2Text')} rows={3} style={input} />
 
-              <label style={label}>
-                Nilai 2 - Judul
-              </label>
-
-              <input
-                type="text"
-                name="aboutValue2Title"
-                defaultValue={getValue('aboutValue2Title')}
-                style={input}
-              />
-
-              <label style={label}>
-                Nilai 2 - Deskripsi
-              </label>
-
-              <textarea
-                name="aboutValue2Text"
-                defaultValue={getValue('aboutValue2Text')}
-                rows={3}
-                style={input}
-              />
-
+              <label style={label}>Nilai 2 - Gambar (Opsional)</label>
+              <input type="file" name="aboutValue2Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
+              {aboutValue2Image && <img src={aboutValue2Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
             </div>
-
 
             {/* Nilai 3 */}
-
             <div style={field}>
+              <label style={label}>Nilai 3 - Judul</label>
+              <input type="text" name="aboutValue3Title" defaultValue={getValue('aboutValue3Title')} style={input} />
+              
+              <label style={label}>Nilai 3 - Deskripsi</label>
+              <textarea name="aboutValue3Text" defaultValue={getValue('aboutValue3Text')} rows={3} style={input} />
 
-              <label style={label}>
-                Nilai 3 - Judul
-              </label>
-
-              <input
-                type="text"
-                name="aboutValue3Title"
-                defaultValue={getValue('aboutValue3Title')}
-                style={input}
-              />
-
-              <label style={label}>
-                Nilai 3 - Deskripsi
-              </label>
-
-              <textarea
-                name="aboutValue3Text"
-                defaultValue={getValue('aboutValue3Text')}
-                rows={3}
-                style={input}
-              />
-
+              <label style={label}>Nilai 3 - Gambar (Opsional)</label>
+              <input type="file" name="aboutValue3Image" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
+              {aboutValue3Image && <img src={aboutValue3Image} alt="Preview" style={{ height: '100px', objectFit: 'contain', marginTop: '0.5rem', alignSelf: 'flex-start' }} />}
             </div>
 
+          </div>
+
+          {/* =========================
+              LEGALITAS PERUSAHAAN
+          ========================= */}
+
+          <div>
+            <h2 style={sectionTitle}>Legalitas Perusahaan</h2>
+
+            <div style={field}>
+              <label style={label}>Deskripsi Legalitas</label>
+              <textarea name="aboutLegalityText" defaultValue={getValue('aboutLegalityText')} rows={4} style={input} placeholder="Contoh: Perusahaan kami telah terdaftar resmi dengan Nomor Induk Berusaha (NIB)..." />
+            </div>
+
+            <div style={field}>
+              <label style={label}>Gambar/Dokumen Legalitas 1 (Opsional)</label>
+              <input type="file" name="aboutLegalityImage" accept="image/jpeg,image/png,image/webp,application/pdf" style={{ ...input, padding: '0.6rem' }} />
+              <small style={{ color: 'var(--text-light)', fontSize: '0.85rem' }}>Upload foto dokumen atau PDF seperti NIB, SIUP, atau lainnya. Maksimal 5 MB.</small>
+              {aboutLegalityImage && (
+                <div style={{ marginTop: '0.5rem' }}>
+                  <p style={{ fontSize: '0.875rem', marginBottom: '0.25rem' }}>Dokumen Saat Ini:</p>
+                  {aboutLegalityImage.endsWith('.pdf') ? (
+                    <iframe src={`${aboutLegalityImage}#toolbar=0`} style={{ width: '100%', height: '200px', border: '1px solid var(--border-color)', borderRadius: '6px' }} />
+                  ) : (
+                    <img src={aboutLegalityImage} alt="Preview Legalitas 1" style={{ maxHeight: '200px', objectFit: 'contain', border: '1px solid var(--border-color)', borderRadius: '6px' }} />
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div style={field}>
+              <label style={label}>Gambar/Dokumen Legalitas 2 (Opsional)</label>
+              <input type="file" name="aboutLegality2Image" accept="image/jpeg,image/png,image/webp,application/pdf" style={{ ...input, padding: '0.6rem' }} />
+              <small style={{ color: 'var(--text-light)', fontSize: '0.85rem' }}>Dokumen legalitas tambahan (PDF/Gambar, Maksimal 5 MB).</small>
+              {aboutLegality2Image && (
+                <div style={{ marginTop: '0.5rem' }}>
+                  <p style={{ fontSize: '0.875rem', marginBottom: '0.25rem' }}>Dokumen Saat Ini:</p>
+                  {aboutLegality2Image.endsWith('.pdf') ? (
+                    <iframe src={`${aboutLegality2Image}#toolbar=0`} style={{ width: '100%', height: '200px', border: '1px solid var(--border-color)', borderRadius: '6px' }} />
+                  ) : (
+                    <img src={aboutLegality2Image} alt="Preview Legalitas 2" style={{ maxHeight: '200px', objectFit: 'contain', border: '1px solid var(--border-color)', borderRadius: '6px' }} />
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div style={field}>
+              <label style={label}>Gambar/Dokumen Legalitas 3 (Opsional)</label>
+              <input type="file" name="aboutLegality3Image" accept="image/jpeg,image/png,image/webp,application/pdf" style={{ ...input, padding: '0.6rem' }} />
+              <small style={{ color: 'var(--text-light)', fontSize: '0.85rem' }}>Dokumen legalitas tambahan (PDF/Gambar, Maksimal 5 MB).</small>
+              {aboutLegality3Image && (
+                <div style={{ marginTop: '0.5rem' }}>
+                  <p style={{ fontSize: '0.875rem', marginBottom: '0.25rem' }}>Dokumen Saat Ini:</p>
+                  {aboutLegality3Image.endsWith('.pdf') ? (
+                    <iframe src={`${aboutLegality3Image}#toolbar=0`} style={{ width: '100%', height: '200px', border: '1px solid var(--border-color)', borderRadius: '6px' }} />
+                  ) : (
+                    <img src={aboutLegality3Image} alt="Preview Legalitas 3" style={{ maxHeight: '200px', objectFit: 'contain', border: '1px solid var(--border-color)', borderRadius: '6px' }} />
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* =========================
+              STRUKTUR ORGANISASI
+          ========================= */}
+
+          <div>
+            <h2 style={sectionTitle}>Struktur Organisasi</h2>
+
+            <div style={field}>
+              <label style={label}>Bagan Struktur Organisasi</label>
+              <input type="file" name="aboutOrgStructureImage" accept="image/jpeg,image/png,image/webp" style={{ ...input, padding: '0.6rem' }} />
+              <small style={{ color: 'var(--text-light)', fontSize: '0.85rem' }}>Upload bagan struktur organisasi. Maksimal 5 MB.</small>
+              {aboutOrgStructureImage && (
+                <div style={{ marginTop: '0.5rem' }}>
+                  <p style={{ fontSize: '0.875rem', marginBottom: '0.25rem' }}>Bagan Saat Ini:</p>
+                  <img src={aboutOrgStructureImage} alt="Preview Struktur Organisasi" style={{ maxHeight: '200px', objectFit: 'contain', border: '1px solid var(--border-color)', borderRadius: '6px' }} />
+                </div>
+              )}
+            </div>
           </div>
 
 

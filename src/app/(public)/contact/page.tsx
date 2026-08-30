@@ -1,4 +1,5 @@
 import { getSettings } from '@/lib/settings';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
   title: 'Hubungi Kami',
@@ -38,21 +39,7 @@ export default async function Contact() {
 
         <div className="card">
           <h2 style={{ marginBottom: '1.5rem', color: 'var(--primary)' }}>Kirim Pesan</h2>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <div>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Nama Lengkap</label>
-              <input type="text" placeholder="Masukkan nama" style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)', outline: 'none' }} />
-            </div>
-            <div>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Email</label>
-              <input type="email" placeholder="Masukkan email" style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)', outline: 'none' }} />
-            </div>
-            <div>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>Pesan</label>
-              <textarea placeholder="Pesan Anda" rows={4} style={{ width: '100%', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)', outline: 'none', resize: 'vertical' }}></textarea>
-            </div>
-            <button type="button" className="btn" style={{ width: '100%' }}>Kirim Pesan</button>
-          </form>
+          <ContactForm whatsappNumber={settings.contactPhone} />
         </div>
       </div>
     </div>

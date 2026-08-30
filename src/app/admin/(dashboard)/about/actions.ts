@@ -18,6 +18,7 @@ const aboutKeys = [
   'aboutValue2Text',
   'aboutValue3Title',
   'aboutValue3Text',
+  'aboutLegalityText',
 ];
 
 export async function updateAboutAction(formData: FormData) {
@@ -56,83 +57,61 @@ export async function updateAboutAction(formData: FormData) {
   // UPLOAD GAMBAR
   // =========================
 
-  const image = formData.get('aboutImage');
+  const imageKeys = [
+    'aboutImage',
+    'aboutValue1Image',
+    'aboutValue2Image',
+    'aboutValue3Image',
+    'aboutLegalityImage',
+    'aboutLegality2Image',
+    'aboutLegality3Image',
+    'aboutOrgStructureImage',
+  ];
 
+  for (const imageKey of imageKeys) {
+    const image = formData.get(imageKey);
 
-  if (
-    image &&
-    image instanceof File &&
-    image.size > 0
-  ) {
+    if (image && image instanceof File && image.size > 0) {
+      // Validasi tipe file
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
 
-    // Validasi tipe file
-
-    const allowedTypes = [
-      'image/jpeg',
-      'image/png',
-      'image/webp',
-    ];
-
-    if (!allowedTypes.includes(image.type)) {
-      throw new Error(
-        'Format gambar tidak didukung. Gunakan JPG, PNG, atau WEBP.'
-      );
-    }
-
-
-    // Batas ukuran 5 MB
-
-    const maxSize = 5 * 1024 * 1024;
-
-    if (image.size > maxSize) {
-      throw new Error(
-        'Ukuran gambar terlalu besar. Maksimal 5 MB.'
-      );
-    }
-
-
-    // =========================
-    // UPLOAD KE VERCEL BLOB
-    // =========================
-
-    const extension =
-      image.name.split('.').pop() || 'jpg';
-
-    const fileName =
-      `about-company-${Date.now()}.${extension}`;
-
-
-    const blob = await put(
-      `about/${fileName}`,
-      image,
-      {
-        access: 'public',
+      if (!allowedTypes.includes(image.type)) {
+        throw new Error('Format file tidak didukung. Gunakan JPG, PNG, WEBP, atau PDF.');
       }
-    );
 
+      // Batas ukuran 5 MB
+      const maxSize = 5 * 1024 * 1024;
+      if (image.size > maxSize) {
+        throw new Error('Ukuran file terlalu besar. Maksimal 5 MB.');
+      }
 
-    // =========================
-    // SIMPAN URL KE DATABASE
-    // =========================
+      // =========================
+      // UPLOAD KE VERCEL BLOB
+      // =========================
+      const extension = image.name.split('.').pop() || 'jpg';
+      const fileName = `about-company-${imageKey}-${Date.now()}.${extension}`;
 
-    await prisma.setting.upsert({
+      const blob = await put(`about/${fileName}`, image, {
+        access: 'public',
+      });
 
-      where: {
-        key: 'aboutImage',
-      },
-
-      update: {
-        value: blob.url,
-      },
-
-      create: {
-        key: 'aboutImage',
-        value: blob.url,
-        description: 'Gambar Tentang Perusahaan',
-      },
-
-    });
-
+      // =========================
+      // SIMPAN URL KE DATABASE
+      // =========================
+      await prisma.setting.upsert({
+        where: {
+          key: imageKey,
+        },
+        update: {
+          value: blob.url,
+        },
+        create: {
+          key: imageKey,
+          value: blob.url,
+          description: `Gambar ${imageKey}`,
+        },
+      });
+    }
   }
 
 
