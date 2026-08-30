@@ -29,10 +29,6 @@ export default async function Services() {
 
           {services.map((svc) => {
 
-            // ==========================================
-            // UBAH DESKRIPSI MENJADI LIST
-            // ==========================================
-
             const descriptionItems = svc.description
               .split('•')
               .map((item) => item.trim())
@@ -45,7 +41,7 @@ export default async function Services() {
               >
 
                 {/* =========================
-                    JUDUL LAYANAN
+                    JUDUL
                 ========================= */}
 
                 <h3 className={styles.cardTitle}>
@@ -54,42 +50,31 @@ export default async function Services() {
 
 
                 {/* =========================
-                    DESKRIPSI / POINT
+                    DESKRIPSI
                 ========================= */}
 
-                {descriptionItems.length > 1 ? (
+                <div className={styles.serviceDescription}>
 
-                  <div className={styles.serviceDescription}>
+                  {descriptionItems.length > 1 ? (
 
-                    {descriptionItems.map((item, index) => (
+                    descriptionItems.map((item, index) => (
                       <div
                         key={`${svc.id}-${index}`}
                         className={styles.serviceItem}
                       >
-
-                        <span
-                          className={styles.serviceBullet}
-                          aria-hidden="true"
-                        >
-                          •
-                        </span>
-
-                        <p>
-                          {item}
-                        </p>
-
+                        <p>{item}</p>
                       </div>
-                    ))}
+                    ))
 
-                  </div>
+                  ) : (
 
-                ) : (
+                    <p className="text-light">
+                      {svc.description}
+                    </p>
 
-                  <p className="text-light">
-                    {svc.description}
-                  </p>
+                  )}
 
-                )}
+                </div>
 
               </div>
             );
