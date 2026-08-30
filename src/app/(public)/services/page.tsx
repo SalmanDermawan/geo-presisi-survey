@@ -29,6 +29,7 @@ export default async function Services() {
 
           {services.map((svc) => {
 
+            // Pisahkan berdasarkan tanda bullet •
             const descriptionItems = svc.description
               .split('•')
               .map((item) => item.trim())
@@ -41,7 +42,7 @@ export default async function Services() {
               >
 
                 {/* =========================
-                    JUDUL
+                    JUDUL LAYANAN
                 ========================= */}
 
                 <h3 className={styles.cardTitle}>
@@ -50,31 +51,31 @@ export default async function Services() {
 
 
                 {/* =========================
-                    DESKRIPSI
+                    POINT LAYANAN
                 ========================= */}
 
-                <div className={styles.serviceDescription}>
+                {descriptionItems.length > 1 ? (
 
-                  {descriptionItems.length > 1 ? (
+                  <ul className={styles.serviceList}>
 
-                    descriptionItems.map((item, index) => (
-                      <div
+                    {descriptionItems.map((item, index) => (
+                      <li
                         key={`${svc.id}-${index}`}
                         className={styles.serviceItem}
                       >
-                        <p>{item}</p>
-                      </div>
-                    ))
+                        {item}
+                      </li>
+                    ))}
 
-                  ) : (
+                  </ul>
 
-                    <p className="text-light">
-                      {svc.description}
-                    </p>
+                ) : (
 
-                  )}
+                  <p className="text-light">
+                    {svc.description}
+                  </p>
 
-                </div>
+                )}
 
               </div>
             );
