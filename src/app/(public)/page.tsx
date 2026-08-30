@@ -101,8 +101,8 @@ export default async function Home() {
       {/* CTA Section */}
       <section className={styles.cta}>
         <div className="container text-center">
-          <h2 className={styles.ctaTitle}>Siap Membangun Rumah Impian Anda?</h2>
-          <p className={styles.ctaDesc}>Hubungi tim ahli kami untuk konsultasi gratis mengenai proyek Anda.</p>
+          <h2 className={styles.ctaTitle}>Siap Mengembangkan Proyek Anda dengan Data yang Presisi?</h2>
+          <p className={styles.ctaDesc}>Percayakan kebutuhan survey, pemetaan, dan pengembangan lahan Anda kepada tim profesional kami.</p>
           <Link href="/contact" className={styles.ctaBtn}>Hubungi Kami Sekarang</Link>
         </div>
       </section>

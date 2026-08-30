@@ -20,7 +20,7 @@ export default function Footer({
         <div className={styles.col}>
           <h3 className={styles.title}>{companyName}</h3>
           <p className={styles.desc}>
-            Solusi terbaik untuk kebutuhan bangun dan renovasi rumah Anda.
+            Mitra profesional Anda dalam survey, pemetaan, dan solusi geospasial.
           </p>
         </div>
         
