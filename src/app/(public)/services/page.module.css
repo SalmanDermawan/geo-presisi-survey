@@ -1,0 +1,59 @@
+/* =========================
+   SERVICE DESCRIPTION
+   ========================= */
+
+.serviceDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+
+/* =========================
+   SERVICE ITEM
+   ========================= */
+
+.serviceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+
+/* =========================
+   BULLET
+   ========================= */
+
+.serviceBullet {
+  flex-shrink: 0;
+
+  width: 8px;
+  height: 8px;
+
+  margin-top: 0.55rem;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  font-size: 0;
+
+}
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+.serviceItem p {
+  margin: 0;
+
+  color: var(--text-light);
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  flex: 1;
+}
