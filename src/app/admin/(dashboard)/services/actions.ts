@@ -3,12 +3,7 @@
 import prisma from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
-/**
- * Menambahkan layanan baru
- *
- * @param {FormData} formData
- */
-export async function addServiceAction(formData) {
+export async function addServiceAction(formData: FormData) {
   const title = formData.get('title');
   const description = formData.get('description');
 
@@ -27,13 +22,7 @@ export async function addServiceAction(formData) {
   revalidatePath('/services');
 }
 
-
-/**
- * Mengubah layanan
- *
- * @param {FormData} formData
- */
-export async function updateServiceAction(formData) {
+export async function updateServiceAction(formData: FormData) {
   const id = formData.get('id');
   const title = formData.get('title');
   const description = formData.get('description');
@@ -56,13 +45,7 @@ export async function updateServiceAction(formData) {
   revalidatePath('/services');
 }
 
-
-/**
- * Menghapus layanan
- *
- * @param {FormData} formData
- */
-export async function deleteServiceAction(formData) {
+export async function deleteServiceAction(formData: FormData) {
   const id = formData.get('id');
 
   if (!id) {
@@ -78,3 +61,4 @@ export async function deleteServiceAction(formData) {
   revalidatePath('/admin/services');
   revalidatePath('/services');
 }
+
