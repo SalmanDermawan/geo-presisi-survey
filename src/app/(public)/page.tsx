@@ -49,7 +49,7 @@ export default async function Home() {
       {/* Portfolio Section */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Proyek Terbaru</h2>
+          <h2 className="section-title">Riwayat Proyek</h2>
           <div className={styles.grid2}>
             {portfolios.map((port) => (
               <div key={port.id} className={styles.portfolioCard}>

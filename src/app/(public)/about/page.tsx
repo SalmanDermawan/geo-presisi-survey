@@ -122,7 +122,7 @@ export default async function About() {
   
   const hasLegalityImages = legalityImage || legality2Image || legality3Image;
 
-  return (
+  return ( 
     <main>
 
       {/* =========================
