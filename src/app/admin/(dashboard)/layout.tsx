@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Admin Panel | MM Pusaka Karya',
+  title: 'Admin Panel | CV GEO PRESISI SURVEY',
 };
 
 export default function AdminLayout({
